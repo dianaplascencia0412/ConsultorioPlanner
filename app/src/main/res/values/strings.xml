@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Consultorio Planner</string>
+    <string name="IdDoctor">idDoctor</string>
+    <string name="NombreDoctor">Nombre</string>
+</resources>
