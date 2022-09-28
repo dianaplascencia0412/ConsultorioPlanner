@@ -1,14 +1,16 @@
 package mx.edu.tecmm.consultorioplanner
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorPersona(context: Context, private  var datos: List<Persona>):
-    RecyclerView.Adapter<AdaptadorPersona.ViewHolderPersona> () {
+class AdaptadorPersona(private val datos:ArrayList<Persona>)
+: RecyclerView.Adapter<AdaptadorPersona. ViewHolderPersona>() {
+    var onItemClick: ((Persona) -> Unit)? = null
     class ViewHolderPersona(item: View):
         RecyclerView.ViewHolder(item){
         var txtNombre : TextView = item.findViewById(R.id.txtNombre)
@@ -23,8 +25,19 @@ class AdaptadorPersona(context: Context, private  var datos: List<Persona>):
 
     override fun onBindViewHolder(holder: ViewHolderPersona, position: Int) {
         val persona = datos [position]
-        holder.txtNombre.text =  persona.nombre
-        holder.txtId.text = persona.id
+        holder.txtNombre.text =  persona.Nombre
+        holder.txtId.text = persona.Id
+
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(persona)
+            val selectedPosition=0
+
+            if(selectedPosition == position)
+                holder.itemView.setBackgroundColor(Color.GRAY);
+
+        }
+
+
 
        /* holder.itemView.setOnClickListener(new View.OnClickListener {
            @Override
