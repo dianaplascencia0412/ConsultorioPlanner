@@ -10,48 +10,36 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var recycler: RecyclerView
-    private lateinit var datoslist : ArrayList<Persona>
-    private lateinit var adaptadorPersona: AdaptadorPersona
+   lateinit var recycler: RecyclerView
 
     companion object{
-      //  val personas =  ArrayList<Persona> ()
+        val doctores =  ArrayList<Doctores> ()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        recycler= findViewById(R.id.rv_persona)
-        recycler.setHasFixedSize(true)
-        recycler.layoutManager = LinearLayoutManager(this)
-
-        datoslist = ArrayList()
-
-        datoslist.add(Persona("Sara", "1"))
-        datoslist.add(Persona("Diana", "2"))
-        datoslist.add(Persona("Jose" ,"3"))
+        recycler = findViewById(R.id.rv_persona)
+        doctores.add(Doctores("123456" , "Diana Rios"))
+        doctores.add(Doctores("234567" , "Sara Beltran"))
+        doctores.add(Doctores("345678" , "Jose Avila"))
 
 
-        adaptadorPersona= AdaptadorPersona(datoslist)
-        recycler.adapter = adaptadorPersona
 
+        val adaptador = AdaptadorDoctor(this, doctores)
+        recycler.adapter = adaptador
+    }
 
-        adaptadorPersona.onItemClick = {
-            val intent = Intent(this, MostrarCitas::class.java)
-            intent.putExtra("", it)
-            startActivity(intent)
-        }
-
+    override fun onPostResume() {
+        super.onPostResume()
 
     }
 
-   /* override fun onPostResume() {
-        super.onPostResume()
-        val adaptador = AdaptadorPersona(this, personas)
-        recycler.adapter = adaptador
-    }*/
-
     fun AgregarDoctor(v: View){
         val intent= Intent(this,AgregarDoctor::class.java)
+        startActivity(intent)
+    }
+    fun abrirMostrar(v: View){
+        val intent = Intent(this, MostrarCitas::class.java)
         startActivity(intent)
     }
 
