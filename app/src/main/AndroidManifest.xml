@@ -11,6 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConsultorioPlanner">
         <activity
+            android:name=".AgregarCita"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MostrarCitas"
             android:exported="false">
             <meta-data

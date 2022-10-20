@@ -2,4 +2,12 @@
     <string name="app_name">Consultorio Planner</string>
     <string name="IdDoctor">idDoctor</string>
     <string name="NombreDoctor">Nombre</string>
+    <string name="buscarFecha">Buscar</string>
+    <string name="TituloCitas">CITAS DOCTOR</string>
+    <string name="NombreDoctorCitas">Nombre</string>
+    <string name="IdDoctorCitas">Id</string>
+    <string name="HintIdAgregarDoctor">INGRESA ID</string>
+    <string name="HintNombreAgregarDoctor">INGRESA NOMBRE</string>
+    <string name="GuardarDoctor">GUARDAR</string>
+    <string name="TituloAgregarDoctor">AGREGAR DOCTOR</string>
 </resources>

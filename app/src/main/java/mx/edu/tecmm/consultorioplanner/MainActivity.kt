@@ -3,6 +3,7 @@ package mx.edu.tecmm.consultorioplanner
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , cellClikListenerDoctor {
    lateinit var recycler: RecyclerView
     lateinit var db :consultorioplanner
 
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity() {
     }
     fun abrirMostrarCitas(v: View){
         val intent = Intent(this, MostrarCitas::class.java)
+
+        intent.putExtra("idDoctor","1")
+
         startActivity(intent)
     }
     override fun onPostResume() {
@@ -49,16 +53,20 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch{
             val lista= db.room.DoctoresDao().getAll()
             actualizarRecyclerDespues(lista)
+
         }
     }
     fun actualizarRecyclerDespues(list: List<Doctores>){
-        val adaptador = AdaptadorDoctor(this, list)
+        val adaptador = AdaptadorDoctor(this, list , this)
         recycler.adapter = adaptador
     }
 
-
-
-
+    override fun clickDoctor(doctor: Doctores) {
+        val intent = Intent(this , MostrarCitas::class.java)
+        intent.putExtra("idDoctor", doctor.idDoctor)
+        startActivity(intent)
+        Log.e("id", "${doctor.idDoctor}")
+    }
 
 
 }
