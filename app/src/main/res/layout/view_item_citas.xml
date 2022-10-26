@@ -32,19 +32,19 @@
                     android:id="@+id/txtNombreP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="Nombre" />
 
                 <TextView
                     android:id="@+id/txtFechaC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="Fecha" />
 
                 <TextView
                     android:id="@+id/txtHoraC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="Hora" />
             </LinearLayout>
         </LinearLayout>
 
