@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() , cellClikListenerDoctor {
@@ -22,15 +20,9 @@ class MainActivity : AppCompatActivity() , cellClikListenerDoctor {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        recycler = findViewById(R.id.rv_persona)
-       // doctores.add(Doctores("123456" , "Diana Rios"))
-       // doctores.add(Doctores("234567" , "Sara Beltran"))
-       // doctores.add(Doctores("345678" , "Jose Avila"))
+        recycler = findViewById(R.id.rv_personas)
 
         db = this.application as consultorioplanner
-
-       // val adaptador = AdaptadorDoctor(this, doctores)
-     //   recycler.adapter = adaptador
     }
 
 
@@ -40,11 +32,10 @@ class MainActivity : AppCompatActivity() , cellClikListenerDoctor {
     }
     fun abrirMostrarCitas(v: View){
         val intent = Intent(this, MostrarCitas::class.java)
-
         intent.putExtra("idDoctor","1")
-
         startActivity(intent)
     }
+
     override fun onPostResume() {
         super.onPostResume()
         actualizarRecycler()

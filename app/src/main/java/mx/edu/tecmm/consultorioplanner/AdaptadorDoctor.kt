@@ -1,13 +1,11 @@
 package mx.edu.tecmm.consultorioplanner
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class AdaptadorDoctor(context: Context, private  var datos: List<Doctores> ,private var doctor:cellClikListenerDoctor): RecyclerView.Adapter<AdaptadorDoctor.ViewHolderDoctor> () {

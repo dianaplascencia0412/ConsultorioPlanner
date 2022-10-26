@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/NombreDoctor"
+                    android:text="Nombre"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -52,7 +52,7 @@
                     android:id="@+id/txtId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/IdDoctor" />
+                    android:text="id Doctor" />
             </LinearLayout>
         </LinearLayout>
 
