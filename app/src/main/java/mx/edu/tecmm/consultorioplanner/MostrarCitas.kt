@@ -77,18 +77,18 @@ class MostrarCitas : AppCompatActivity() {
         startActivity(intent)
     }
 
-   override fun onPostResume() {
+  /*override fun onPostResume() {
         super.onPostResume()
         actualizarRecycler()
     }
     fun actualizarRecycler(){
         lifecycleScope.launch{
-            val lista= db.room.DoctoresDao().getAll()
+            val lista= db.room.CitasDao().getAll()
             actualizarRecyclerDespues(lista)
         }
     }
-    fun actualizarRecyclerDespues(list: List<Doctores>){
+    fun actualizarRecyclerDespues(list: List<Citas>){
         val adaptador = AdaptadorCitas(this, list)
         recycler.adapter = adaptador
-    }
+    }*/
 }

@@ -12,11 +12,10 @@ interface Sentencias {
 
     @Query("SELECT * FROM Doctores WHERE idDoctor IN (:idDoctorr)")
     suspend fun getById(idDoctorr:String):Doctores
-
-
     @Update
     suspend fun update(persona:Doctores)
 
     @Insert
     suspend fun insert(persona: Doctores)
+
 }

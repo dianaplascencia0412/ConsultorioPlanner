@@ -7,11 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
@@ -21,6 +17,8 @@ class AgregarCita : AppCompatActivity() , AdapterView.OnItemSelectedListener{
     lateinit var txtFecha: TextView
     lateinit var spHora : Spinner
     lateinit var Hora : String
+    lateinit var txtNombrePaciente: EditText
+    lateinit var txtTelefono: EditText
     lateinit var db :consultorioplanner
     val Horas = arrayOf("8", "9","10","11","12","1","2")
 
@@ -34,6 +32,8 @@ class AgregarCita : AppCompatActivity() , AdapterView.OnItemSelectedListener{
         txtNombreDoctor = findViewById(R.id.txtNombreD)
         txtFecha = findViewById(R.id.edFecha)
         spHora = findViewById(R.id.spinnerHora)
+        txtNombrePaciente = findViewById(R.id.edNombrePaciente)
+        txtTelefono = findViewById(R.id.edTelefonoPaciente)
 
         var id = intent.getStringExtra("idDoctor2")
         var id2 = id.toString()
@@ -64,16 +64,6 @@ class AgregarCita : AppCompatActivity() , AdapterView.OnItemSelectedListener{
         Log.e("SPINNER", "Se selecciono algo: $posicion")
 
         Hora = Horas[posicion]
-        //txtTitulo.text = lenguaje
-       /* txtDescripcion.text = when (posicion) {
-            0 -> "Java es un lenguaje sencillo y orientado a objetos, que permite el desarrollo de aplicaciones "
-            1-> "PHP (Hypertext Preprocessor ) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML"
-            2 -> "C# es un lenguaje de programación multiparadigma desarrollado y estandarizado por la empresa Microsoft como parte de su plataforma .NET"
-            3 ->  "Un lenguaje de programación dinámico y de código abierto , se utiliza principalmente en el desarrollo de aplicaciones web"
-            4 -> "Swift es un lenguaje de programación multiparadigma creado por Apple enfocado en el desarrollo de aplicaciones para iOS y macOS"
-            else -> ""
-        }*/
-
 
     }
 
@@ -93,6 +83,28 @@ class AgregarCita : AppCompatActivity() , AdapterView.OnItemSelectedListener{
         newFragment.show(supportFragmentManager, "datePicker")
 
 
+    }
+
+    fun agregarCita(v: View) {
+
+        //Aqui agrego una cita a la base de datos
+        val idDoctor= txtId.text.toString()
+        val fecha = txtFecha.text.toString()
+        val hora = Hora.toString()
+        val nombreP = txtNombrePaciente.toString()
+        val telefono = txtTelefono.toString()
+        if(idDoctor.equals("") or fecha.equals("") or nombreP.equals("") or telefono.equals("")){
+            Toast.makeText(this, "Error complete todos los datos", Toast.LENGTH_LONG).show()
+        }
+        else {
+            lifecycleScope.launch {
+                val cita = Citas(0, fecha , hora , idDoctor, nombreP, telefono)
+                db.room.CitasDao().insert(cita)
+            }
+            Toast.makeText(this, "Cita Registrada", Toast.LENGTH_LONG).show()
+            finish()
+
+        }
     }
 
 

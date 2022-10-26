@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorCitas (context: Context, private  var datos: List<Doctores>): RecyclerView.Adapter<AdaptadorCitas.ViewHolderCitas> () {
+class AdaptadorCitas (context: Context, private  var datos: List<Citas>): RecyclerView.Adapter<AdaptadorCitas.ViewHolderCitas> () {
     class ViewHolderCitas(item: View):
         RecyclerView.ViewHolder(item){
         var txtNombre : TextView = item.findViewById(R.id.txtNombreP)
@@ -22,11 +22,11 @@ class AdaptadorCitas (context: Context, private  var datos: List<Doctores>): Rec
     }
 
     override fun onBindViewHolder(holder: ViewHolderCitas, position: Int) {
-        val doctores = datos [position]
+        val Citas = datos [position]
 
-        holder.txtNombre.text = doctores.nombre
-        holder.txtFecha.text = doctores.idDoctor
-        holder.txtHora.text = doctores.nombre
+        holder.txtNombre.text = Citas.nombreP
+        holder.txtFecha.text = Citas.fechaCita
+        holder.txtHora.text = Citas.horaCita
     }
 
     override fun getItemCount(): Int = datos.size
