@@ -17,7 +17,7 @@ class AdaptadorCitas (context: Context, private  var datos: List<Citas>): Recycl
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderCitas {
-        val layoutItem = LayoutInflater.from(parent.context).inflate(R.layout.view_item, parent,false)
+        val layoutItem = LayoutInflater.from(parent.context).inflate(R.layout.view_item_citas, parent,false)
         return ViewHolderCitas(layoutItem)
     }
 

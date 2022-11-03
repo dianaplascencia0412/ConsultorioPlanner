@@ -23,6 +23,8 @@ class MostrarCitas : AppCompatActivity() {
     lateinit var txtFecha:EditText
     lateinit var db :consultorioplanner
     lateinit var salida: String
+    lateinit var idDoctoor: String
+    lateinit var fechaCita: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mostrar_citas)
@@ -40,14 +42,17 @@ class MostrarCitas : AppCompatActivity() {
         }
         val hoy = System.currentTimeMillis()
         val fecha = Date(hoy)
-        val df: DateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val df: DateFormat = SimpleDateFormat("dd / MM / yyyy")
         salida = df.format(fecha)
         txtFecha.setText(salida)
+
+        fechaCita = salida
 
 
 
         var id = intent.getStringExtra("idDoctor")
         var id2 = id.toString()
+        idDoctoor = id2
 
         lifecycleScope.launch{
 
@@ -66,6 +71,7 @@ class MostrarCitas : AppCompatActivity() {
                 val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
                 imm?.hideSoftInputFromWindow(txtFecha.windowToken, 0)
                 txtFecha.setText(selectedDate)
+                fechaCita = txtFecha.text.toString()
             })
         newFragment.show(supportFragmentManager, "datePicker")
     }
@@ -77,18 +83,30 @@ class MostrarCitas : AppCompatActivity() {
         startActivity(intent)
     }
 
-  /*override fun onPostResume() {
+  override fun onPostResume() {
         super.onPostResume()
         actualizarRecycler()
     }
     fun actualizarRecycler(){
         lifecycleScope.launch{
-            val lista= db.room.CitasDao().getAll()
+           val lista= db.room.CitasDao().getAllByIdDoctor(idDoctoor)
+
             actualizarRecyclerDespues(lista)
         }
     }
     fun actualizarRecyclerDespues(list: List<Citas>){
         val adaptador = AdaptadorCitas(this, list)
         recycler.adapter = adaptador
-    }*/
+    }
+
+    fun mostrarcitafitro(v: View){
+        //idDoctoor ="1234"
+        lifecycleScope.launch{
+            val lista= db.room.CitasDao().getByFecha(idDoctoor , fechaCita)
+            actualizarRecyclerDespues(lista)
+
+        }
+    }
+
+
 }

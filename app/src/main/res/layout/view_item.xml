@@ -28,7 +28,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/usuario"
+                android:src="@drawable/doctor2"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:text="Nombre"
-                    android:textColor="@color/black"
+                    android:textColor="@color/primaryDarkColor"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -52,7 +52,9 @@
                     android:id="@+id/txtId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="id Doctor" />
+                    android:fontFamily="sans-serif-medium"
+                    android:text="id Doctor"
+                    android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
 

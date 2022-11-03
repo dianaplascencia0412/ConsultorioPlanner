@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorDoctor(context: Context, private  var datos: List<Doctores> ,private var doctor:cellClikListenerDoctor): RecyclerView.Adapter<AdaptadorDoctor.ViewHolderDoctor> () {
+class AdaptadorDoctor(context: Context, private  var datos: List<Doctores> ,private var doctor:
+cellClikListenerDoctor): RecyclerView.Adapter<AdaptadorDoctor.ViewHolderDoctor> () {
     class ViewHolderDoctor(item: View):
         RecyclerView.ViewHolder(item){
         var txtNombre : TextView = item.findViewById(R.id.txtNombre)
@@ -25,6 +26,8 @@ class AdaptadorDoctor(context: Context, private  var datos: List<Doctores> ,priv
         val doctores = datos [position]
         holder.txtId.text = doctores.idDoctor
         holder.txtNombre.text = doctores.nombre
+
+
         holder.itemView.setOnClickListener{
             doctor.clickDoctor(doctores)
             Log.e("click", "di click")

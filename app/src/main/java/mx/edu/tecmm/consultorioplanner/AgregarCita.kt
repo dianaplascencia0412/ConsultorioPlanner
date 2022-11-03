@@ -91,8 +91,8 @@ class AgregarCita : AppCompatActivity() , AdapterView.OnItemSelectedListener{
         val idDoctor= txtId.text.toString()
         val fecha = txtFecha.text.toString()
         val hora = Hora.toString()
-        val nombreP = txtNombrePaciente.toString()
-        val telefono = txtTelefono.toString()
+        val nombreP = txtNombrePaciente.text.toString()
+        val telefono = txtTelefono.text.toString()
         if(idDoctor.equals("") or fecha.equals("") or nombreP.equals("") or telefono.equals("")){
             Toast.makeText(this, "Error complete todos los datos", Toast.LENGTH_LONG).show()
         }

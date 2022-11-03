@@ -8,9 +8,9 @@ class consultorioplanner  : Application()  {
 
     override fun onCreate() {
         super.onCreate()
-        //room =  Room.databaseBuilder(this, AppDatabase::class.java, "doctor").build()
+        room =  Room.databaseBuilder(this, AppDatabase::class.java, "doctor").build()
 
-        room =  Room.databaseBuilder(this, AppDatabase::class.java, "doctor").fallbackToDestructiveMigration().build()
+      // room =  Room.databaseBuilder(this, AppDatabase::class.java, "doctor").fallbackToDestructiveMigration().build()
 
     }
 }
