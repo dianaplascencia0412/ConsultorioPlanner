@@ -10,7 +10,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="sans-serif-black"
         android:text="MOSTRAR CITAS"
         android:textColor="@color/black"
@@ -21,9 +21,9 @@
 
     <EditText
         android:id="@+id/edFechita"
-        android:layout_width="202dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="199dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -31,38 +31,38 @@
         android:inputType="date"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreDoctor" />
 
     <TextView
         android:id="@+id/txtIdDoctor"
-        android:layout_width="80dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="73dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/IdDoctorCitas"
+        android:textAlignment="center"
         android:textColor="@color/primaryColor"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/txtNombreDoctor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="104dp"
+        android:layout_width="254dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/NombreDoctorCitas"
+        android:textAlignment="center"
         android:textColor="@color/primaryColor"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
-        app:layout_constraintStart_toEndOf="@+id/txtIdDoctor"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtIdDoctor" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton2"
@@ -79,31 +79,29 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cita"
-        android:layout_width="367dp"
-        android:layout_height="479dp"
+        android:layout_width="339dp"
+        android:layout_height="432dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-
-        android:layout_marginBottom="30dp"
 
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edFechita"
-        app:layout_constraintVertical_bias="0.342"
+        app:layout_constraintVertical_bias="0.185"
         tools:listitem="@layout/view_item_citas" />
 
     <Button
         android:id="@+id/btnBuscarCitasFecha"
-        android:layout_width="111dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="120dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="84dp"
         android:onClick="mostrarcitafitro"
         android:text="Buscar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toEndOf="@+id/edFechita"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
