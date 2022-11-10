@@ -12,6 +12,7 @@
         android:theme="@style/Theme.ConsultorioPlanner">
         <activity
             android:name=".AgregarCita"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -19,6 +20,7 @@
         </activity>
         <activity
             android:name=".MostrarCitas"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -33,9 +35,11 @@
         </activity>
         <activity
             android:name=".AgregarDoctor"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

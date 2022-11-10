@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() , cellClikListenerDoctor {
         setContentView(R.layout.activity_main)
         recycler = findViewById(R.id.rv_personas)
 
+
         db = this.application as consultorioplanner
     }
 
@@ -30,11 +31,11 @@ class MainActivity : AppCompatActivity() , cellClikListenerDoctor {
         val intent= Intent(this,AgregarDoctor::class.java)
         startActivity(intent)
     }
-    fun abrirMostrarCitas(v: View){
+   /* fun abrirMostrarCitas(v: View){
         val intent = Intent(this, MostrarCitas::class.java)
         intent.putExtra("idDoctor","1")
         startActivity(intent)
-    }
+    }*/
 
     override fun onPostResume() {
         super.onPostResume()

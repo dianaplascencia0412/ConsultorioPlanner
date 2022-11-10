@@ -7,24 +7,23 @@
     tools:context=".MostrarCitas">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:fontFamily="sans-serif-black"
-        android:text="@string/TituloCitas"
+        android:text="MOSTRAR CITAS"
         android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edFechita"
-        android:layout_width="205dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="202dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -32,7 +31,7 @@
         android:inputType="date"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -90,35 +89,21 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edFechita"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.342"
         tools:listitem="@layout/view_item_citas" />
 
     <Button
         android:id="@+id/btnBuscarCitasFecha"
-        android:layout_width="95dp"
-        android:layout_height="44dp"
+        android:layout_width="111dp"
+        android:layout_height="40dp"
         android:layout_marginTop="152dp"
         android:onClick="mostrarcitafitro"
         android:text="Buscar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toEndOf="@+id/edFechita"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif-black"
-        android:text="MOSTRAR CITAS"
-        android:textColor="@color/black"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
