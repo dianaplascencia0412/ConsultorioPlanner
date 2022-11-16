@@ -141,7 +141,7 @@
         android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:hint="INGRESA LA FECHA"
+        android:hint="SELECCIONA LA FECHA"
         android:inputType="date"
         android:minHeight="48dp"
         android:textSize="14sp"

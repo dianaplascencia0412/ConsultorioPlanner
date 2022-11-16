@@ -180,7 +180,6 @@ class AgregarCita : AppCompatActivity() , AdapterView.OnItemSelectedListener{
     fun actualizarspinner(){
         HorasDisponibles = arrayListOf("08:00 am", "09:00 am","10:00 am","11:00 am","12:00 pm","01:00 pm","02:00 pm")
         validarhoracita(txtId.text.toString() , txtFecha.text.toString())
-
     }
 
 }
