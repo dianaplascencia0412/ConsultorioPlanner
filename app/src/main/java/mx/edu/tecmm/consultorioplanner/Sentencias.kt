@@ -12,6 +12,15 @@ interface Sentencias {
 
     @Query("SELECT * FROM Doctores WHERE idDoctor IN (:idDoctorr)")
     suspend fun getById(idDoctorr:String):Doctores
+
+    @Query("SELECT COUNT(idDoctor) FROM Doctores WHERE idDoctor IN (:idDoctorr)")
+    suspend fun getNumberDoctorById(idDoctorr:String):Int
+
+
+    @Query("SELECT idDoctor FROM Doctores ")
+    suspend fun getId():Doctores
+
+
     @Update
     suspend fun update(persona:Doctores)
 

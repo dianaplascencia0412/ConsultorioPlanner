@@ -2,6 +2,7 @@ package mx.edu.tecmm.consultorioplanner
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -12,7 +13,6 @@ class AgregarDoctor : AppCompatActivity() {
     lateinit var txtNombre: EditText
     lateinit var txtId: EditText
     lateinit var db :consultorioplanner
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_doctor)
@@ -27,18 +27,39 @@ class AgregarDoctor : AppCompatActivity() {
 
         //Aqui agrego un doctor a la base de datos
         val id= txtId.text.toString()
-        val nombre = txtNombre.text.toString()
-        if(id.equals("") or nombre.equals("")){
-            Toast.makeText(this, "Error complete todos los datos", Toast.LENGTH_LONG).show()
-        }
-        else {
-            lifecycleScope.launch {
-                val doctor = Doctores(id, nombre)
-                db.room.DoctoresDao().insert(doctor)
-            }
-            Toast.makeText(this, "Doctor Registrado", Toast.LENGTH_LONG).show()
-            finish()
 
+
+        lifecycleScope.launch {
+            val numberDoctors = db.room.DoctoresDao().getNumberDoctorById(id)
+            if(numberDoctors == 0){
+                procesarAgregarDoctor(id)
+
+            }else{
+               Log.e("Error  ","Id repetido")
+                Toast.makeText(applicationContext, "Error id doctor ya esta registrado", Toast.LENGTH_LONG).show()
+            }
         }
+
+    }
+
+    fun  procesarAgregarDoctor(id:String) {
+
+        //Aqui agrego un doctor a la base de datos
+        val id= txtId.text.toString()
+        val nombre = txtNombre.text.toString()
+
+        if(id.equals("") or nombre.equals("")){
+              Toast.makeText(this, "Error complete todos los datos", Toast.LENGTH_LONG).show()
+          }
+          else {
+
+              lifecycleScope.launch {
+                  val doctor = Doctores(id, nombre)
+                  db.room.DoctoresDao().insert(doctor)
+              }
+              Toast.makeText(this, "Doctor Registrado", Toast.LENGTH_LONG).show()
+              finish()
+
+          }
     }
 }

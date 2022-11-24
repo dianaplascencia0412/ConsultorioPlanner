@@ -20,14 +20,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="101dp"
             android:orientation="horizontal"
             android:padding="15dp">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:src="@drawable/doctor2"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -41,7 +41,7 @@
                 <TextView
                     android:id="@+id/txtNombre"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="37dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Nombre"
                     android:textColor="@color/primaryDarkColor"
@@ -51,7 +51,7 @@
                 <TextView
                     android:id="@+id/txtId"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="id Doctor"
                     android:textColor="@color/black" />
